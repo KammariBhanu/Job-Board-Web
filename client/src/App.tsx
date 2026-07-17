@@ -18,7 +18,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 function Router() {
   return (
     <Switch>
-      <Route path={"/ "} component={Home} />
+      <Route path={"/"} component={Home} />
       <Route path={"/jobs"} component={Jobs} />
       <Route path={"/jobs/:id"} component={JobDetail} />
       <Route path={"/companies"} component={Companies} />
