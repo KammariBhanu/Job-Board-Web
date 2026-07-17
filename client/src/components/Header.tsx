@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'wouter';
+
 import { Menu, X, Moon, Sun, Bell, User, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -27,23 +27,23 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
-        <Link href="/">
-          <a className="flex items-center gap-2 font-bold text-xl text-primary hover:opacity-80 transition-opacity">
-            <div className="w-8 h-8 bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold">JB</span>
-            </div>
-            <span>JobBoard</span>
-          </a>
-        </Link>
+        <a href="/" className="flex items-center gap-2 font-bold text-xl text-primary hover:opacity-80 transition-opacity cursor-pointer">
+          <div className="w-8 h-8 bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-lg flex items-center justify-center">
+            <span className="text-white font-bold">JB</span>
+          </div>
+          <span>JobBoard</span>
+        </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href}>
-              <a className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                {item.label}
-              </a>
-            </Link>
+            <a
+              key={item.href}
+              href={item.href}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+            >
+              {item.label}
+            </a>
           ))}
         </nav>
 
@@ -84,34 +84,18 @@ export default function Header() {
                   <p className="text-xs text-muted-foreground">{user.email}</p>
                 </div>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem asChild>
-                  <Link href="/profile">
-                    <a className="flex items-center gap-2 cursor-pointer">
-                      <User className="h-4 w-4" />
-                      <span>Profile</span>
-                    </a>
-                  </Link>
+                <DropdownMenuItem onClick={() => window.location.href = '/profile'}>
+                  <User className="h-4 w-4" />
+                  <span>Profile</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/saved">
-                    <a className="flex items-center gap-2 cursor-pointer">
-                      <span>Saved Jobs</span>
-                    </a>
-                  </Link>
+                <DropdownMenuItem onClick={() => window.location.href = '/saved'}>
+                  <span>Saved Jobs</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/applied">
-                    <a className="flex items-center gap-2 cursor-pointer">
-                      <span>Applied Jobs</span>
-                    </a>
-                  </Link>
+                <DropdownMenuItem onClick={() => window.location.href = '/applied'}>
+                  <span>Applied Jobs</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/settings">
-                    <a className="flex items-center gap-2 cursor-pointer">
-                      <span>Settings</span>
-                    </a>
-                  </Link>
+                <DropdownMenuItem onClick={() => window.location.href = '/settings'}>
+                  <span>Settings</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={logout} className="text-red-600">
@@ -122,20 +106,12 @@ export default function Header() {
             </DropdownMenu>
           ) : (
             <div className="flex items-center gap-2">
-              <Link href="/login">
-                <a>
-                  <Button variant="ghost" size="sm">
-                    Login
-                  </Button>
-                </a>
-              </Link>
-              <Link href="/signup">
-                <a>
-                  <Button size="sm" className="bg-indigo-600 hover:bg-indigo-700">
-                    Sign Up
-                  </Button>
-                </a>
-              </Link>
+              <Button variant="ghost" size="sm" onClick={() => window.location.href = '/login'}>
+                Login
+              </Button>
+              <Button size="sm" className="bg-indigo-600 hover:bg-indigo-700" onClick={() => window.location.href = '/signup'}>
+                Sign Up
+              </Button>
             </div>
           )}
 
@@ -160,14 +136,14 @@ export default function Header() {
         <nav className="md:hidden border-t border-border/40 bg-background">
           <div className="container py-4 flex flex-col gap-3">
             {navItems.map((item) => (
-              <Link key={item.href} href={item.href}>
-                <a
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </a>
-              </Link>
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2 cursor-pointer"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.label}
+              </a>
             ))}
           </div>
         </nav>

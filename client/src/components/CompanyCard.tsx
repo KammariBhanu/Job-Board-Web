@@ -1,4 +1,4 @@
-import { Link } from 'wouter';
+
 import { Star, MapPin, Users, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Company } from '@/lib/mockData';
@@ -70,17 +70,14 @@ export default function CompanyCard({ company }: CompanyCardProps) {
 
         {/* Actions */}
         <div className="flex gap-2">
-          <Link href={`/companies/${company.id}`}>
-            <a className="flex-1">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full transition-all"
-              >
-                View Profile
-              </Button>
-            </a>
-          </Link>
+          <Button
+            variant="outline"
+            size="sm"
+            className="flex-1 transition-all"
+            onClick={() => window.location.href = `/companies/${company.id}`}
+          >
+            View Profile
+          </Button>
           <Button
             variant="default"
             size="sm"
