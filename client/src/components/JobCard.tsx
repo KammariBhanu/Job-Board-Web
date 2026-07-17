@@ -70,11 +70,9 @@ export default function JobCard({ job, featured = false }: JobCardProps) {
               className="w-10 h-10 rounded-lg object-cover bg-muted"
             />
             <div>
-              <Link href={`/jobs/${job.id}`}>
-                <a className="font-semibold text-lg text-foreground hover:text-indigo-600 transition-colors">
-                  {job.title}
-                </a>
-              </Link>
+              <a href={`/jobs/${job.id}`} className="font-semibold text-lg text-foreground hover:text-indigo-600 transition-colors cursor-pointer">
+              {job.title}
+            </a>
               <p className="text-sm text-muted-foreground">{job.company}</p>
             </div>
           </div>
@@ -145,8 +143,8 @@ export default function JobCard({ job, featured = false }: JobCardProps) {
       {/* Skills */}
       <div className="mb-4">
         <div className="flex flex-wrap gap-2">
-          {job.skills.slice(0, 3).map((skill) => (
-            <BadgeUI key={skill} variant="outline" className="text-xs">
+          {job.skills.slice(0, 3).map((skill, index) => (
+            <BadgeUI key={`${skill}-${index}`} variant="outline" className="text-xs">
               {skill}
             </BadgeUI>
           ))}
@@ -164,20 +162,17 @@ export default function JobCard({ job, featured = false }: JobCardProps) {
           <Users className="h-4 w-4" />
           <span>{job.applicants} applicants</span>
         </div>
-        <Link href={`/jobs/${job.id}`}>
-          <a>
-            <Button
-              size="sm"
-              className={`transition-all ${
-                isHovered
-                  ? 'bg-indigo-600 hover:bg-indigo-700'
-                  : 'bg-indigo-600/80 hover:bg-indigo-600'
-              }`}
-            >
-              View Details
-            </Button>
-          </a>
-        </Link>
+        <Button
+          size="sm"
+          onClick={() => window.location.href = `/jobs/${job.id}`}
+          className={`transition-all ${
+            isHovered
+              ? 'bg-indigo-600 hover:bg-indigo-700'
+              : 'bg-indigo-600/80 hover:bg-indigo-600'
+          }`}
+        >
+          View Details
+        </Button>
       </div>
     </motion.div>
   );

@@ -1,4 +1,4 @@
-import { Link } from 'wouter';
+
 import { motion } from 'framer-motion';
 import { ArrowRight, Briefcase, Users, TrendingUp, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -99,14 +99,10 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row justify-center gap-4"
           >
-            <Link href="/jobs">
-              <a>
-                <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700 text-white">
-                  Browse All Jobs
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </a>
-            </Link>
+            <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700 text-white" onClick={() => window.location.href = '/jobs'}>
+              Browse All Jobs
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
             <Button size="lg" variant="outline">
               Post a Job
             </Button>
@@ -153,14 +149,10 @@ export default function Home() {
                   Handpicked opportunities from top companies
                 </p>
               </div>
-              <Link href="/jobs">
-                <a>
-                  <Button variant="outline" className="hidden sm:flex">
-                    View All Jobs
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </a>
-              </Link>
+              <Button variant="outline" className="hidden sm:flex" onClick={() => window.location.href = '/jobs'}>
+                View All Jobs
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </div>
           </motion.div>
 
@@ -237,19 +229,17 @@ export default function Home() {
           >
             {topCategories.map((category) => (
               <motion.div key={category.id} variants={itemVariants}>
-                <Link href={`/categories/${category.id}`}>
-                  <a>
-                    <Card className="p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group">
-                      <div className="text-4xl mb-3">{category.icon}</div>
-                      <h3 className="font-semibold mb-1 group-hover:text-indigo-600 transition-colors">
-                        {category.name}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {category.jobCount} jobs
-                      </p>
-                    </Card>
-                  </a>
-                </Link>
+                <div onClick={() => window.location.href = `/categories/${category.id}`}>
+                  <Card className="p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group">
+                    <div className="text-4xl mb-3">{category.icon}</div>
+                    <h3 className="font-semibold mb-1 group-hover:text-indigo-600 transition-colors">
+                      {category.name}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {category.jobCount} jobs
+                    </p>
+                  </Card>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -323,14 +313,10 @@ export default function Home() {
             <p className="text-indigo-100 mb-8 max-w-2xl mx-auto">
               Join thousands of professionals who have found their dream jobs on JobBoard.
             </p>
-            <Link href="/jobs">
-              <a>
-                <Button size="lg" variant="secondary" className="text-indigo-600">
-                  Start Exploring
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </a>
-            </Link>
+            <Button size="lg" variant="secondary" className="text-indigo-600" onClick={() => window.location.href = '/jobs'}>
+              Start Exploring
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           </motion.div>
         </div>
       </section>
