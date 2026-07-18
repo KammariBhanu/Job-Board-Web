@@ -144,20 +144,16 @@ Job-Board-Web/
 ## 📷 Screenshots
 
 ### Home Page
-
-*(Add homepage screenshot here)*
+<img width="1905" height="931" alt="image" src="https://github.com/user-attachments/assets/35e10796-6504-4d39-aa05-a1c7d8100975" />
 
 ### Job Listings
 
-*(Add job listings screenshot here)*
-
-### Employer Dashboard
-
-*(Add dashboard screenshot here)*
+<img width="1901" height="931" alt="image" src="https://github.com/user-attachments/assets/d922ef04-96f8-4a1e-a9b5-a2a9a3344442" />
 
 ### Login Page
 
-*(Add login page screenshot here)*
+<img width="1895" height="931" alt="image" src="https://github.com/user-attachments/assets/8c209310-8321-47bf-9130-58137cbe05b6" />
+
 
 ---
 
@@ -211,16 +207,13 @@ This project is licensed under the **MIT License**.
 
 ## 👨‍💻 Developer
 
-**V B Kammari**
+**Kammari BhanuPrasad**
 
 GitHub:
 https://github.com/KammariBhanu
 
-LinkedIn:
-(Add your LinkedIn URL)
-
 Email:
-(Add your Email)
+vbkammari1929@gmail.com
 
 ---
 
